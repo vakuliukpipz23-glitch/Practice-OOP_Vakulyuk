@@ -1,0 +1,60 @@
+bin/
+obj/
+.vs/
+*.user
+*.userosscache
+*.suo
+*.cache
+*.pdb
+*.mdb
+*.log
+*.vspscc
+.nuget/
+*.nupkg
+*.snupkg
+*.vsix
+.vscode/
+*.db
+*.db-shm
+*.db-wal
+*.DS_Store
+
+# Visual Studio temporary files
+_ReSharper*/
+*.[Pp]ublish.xml
+*.Publish.xml
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Build results
+*.dll
+*.exe
+*.app
+*.appx
+*.msi
+*.apk
+*.unitypackage
+
+# Project files
+*.pidb
+*.sdf
+*.dbmdl
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Resharper
+_ReSharper*
+*.ReSharper
+
+# DotNet
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
