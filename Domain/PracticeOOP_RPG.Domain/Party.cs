@@ -1,6 +1,6 @@
 namespace PracticeOOP_RPG.Domain;
 
-public sealed class Party
+public sealed class Party : IEnumerable<Character>
 {
     private readonly List<Character> _members = new();
 
@@ -85,6 +85,12 @@ public sealed class Party
     }
 
     public static bool operator !=(Party? left, Party? right) => !(left == right);
+
+    public IEnumerable<Character> GetAliveMembers() => _members.Where(member => member.IsAlive);
+
+    public IEnumerator<Character> GetEnumerator() => _members.GetEnumerator();
+
+    System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() => GetEnumerator();
 
     public override string ToString() => string.Join(", ", _members.Select(m => m.Name));
 }
