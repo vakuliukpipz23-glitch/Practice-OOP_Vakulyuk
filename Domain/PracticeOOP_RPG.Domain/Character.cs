@@ -1,6 +1,6 @@
 ﻿namespace PracticeOOP_RPG.Domain;
 
-public abstract class Character : IEquatable<Character>
+public abstract class Character : ICharacter, IEquatable<Character>
 {
     private readonly string _name;
     private int _health;
@@ -39,6 +39,19 @@ public abstract class Character : IEquatable<Character>
         return Math.Max(1, attackPower - BaseDefense);
     }
 
+    public AttackResult Attack(ICharacter defender, IAttackStrategy strategy)
+    {
+        if (defender == null) throw new ArgumentNullException(nameof(defender));
+        if (strategy == null) throw new ArgumentNullException(nameof(strategy));
+        if (!IsAlive) return new AttackResult(0, $"{Name} cannot attack because they are defeated.");
+        if (defender is not Character defenderCharacter)
+        {
+            throw new ArgumentException("Defender must be a Character.", nameof(defender));
+        }
+
+        return strategy.Execute(this, defender);
+    }
+
     public AttackResult Attack(Character defender, IAttackStrategy strategy)
     {
         if (defender == null) throw new ArgumentNullException(nameof(defender));
@@ -57,6 +70,15 @@ public abstract class Character : IEquatable<Character>
     public abstract string Describe();
 
     public override string ToString() => $"{Name} [HP={Health}, ATK={GetAttackPower()}, DEF={BaseDefense}]";
+
+    public static bool operator ==(Character? left, Character? right)
+    {
+        if (ReferenceEquals(left, right)) return true;
+        if (left is null || right is null) return false;
+        return left.Equals(right);
+    }
+
+    public static bool operator !=(Character? left, Character? right) => !(left == right);
 
     public override bool Equals(object? obj) => Equals(obj as Character);
 
