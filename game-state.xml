@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameStateDto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Name>RPG Simulation</Name>
-  <SavedAt>2026-05-28T13:42:36.3521284Z</SavedAt>
+  <SavedAt>2026-05-28T21:13:57.6672105Z</SavedAt>
   <Characters>
     <CharacterDto>
       <Name>Serin</Name>
