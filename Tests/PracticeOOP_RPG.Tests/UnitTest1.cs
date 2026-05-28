@@ -1,4 +1,5 @@
-﻿using PracticeOOP_RPG.Domain;
+﻿using Moq;
+using PracticeOOP_RPG.Domain;
 
 namespace PracticeOOP_RPG.Tests;
 
@@ -72,5 +73,80 @@ public class BattleTests
 
         Assert.True(first == second);
         Assert.False(first != second);
+    }
+
+    [Fact]
+    public void GameStateSerializer_Should_Save_And_Load_Game_State()
+    {
+        var hero = CharacterFactory.CreateWarrior("Elena");
+        hero.EquipWeapon(WeaponFactory.CreateSword());
+
+        var potion = new Item("Еліксир здоров'я", "Відновлює 20 HP", 0.5, 15);
+        var state = new GameStateDto
+        {
+            Name = "Test State",
+            SavedAt = DateTime.UtcNow,
+            Characters = new List<CharacterDto>
+            {
+                new CharacterDto
+                {
+                    Name = hero.Name,
+                    Type = "Warrior",
+                    Health = hero.Health,
+                    AttackPower = hero.BaseAttackPower,
+                    Defense = hero.BaseDefense,
+                    Weapon = new WeaponDto
+                    {
+                        Name = hero.EquippedWeapon!.Name,
+                        Power = hero.EquippedWeapon.Power,
+                        Range = hero.EquippedWeapon.Range
+                    }
+                }
+            },
+            Inventory = new List<ItemDto>
+            {
+                new ItemDto
+                {
+                    Name = potion.Name,
+                    Description = potion.Description,
+                    Weight = potion.Weight,
+                    Value = potion.Value
+                }
+            }
+        };
+
+        var tempPath = Path.Combine(Path.GetTempPath(), $"gamestate_test_{Guid.NewGuid()}.json");
+        try
+        {
+            GameStateSerializer.Save(tempPath, state);
+            var loaded = GameStateSerializer.Load(tempPath);
+
+            Assert.Equal(state.Name, loaded.Name);
+            Assert.Equal(state.Characters.Count, loaded.Characters.Count);
+            Assert.Equal(state.Inventory.Count, loaded.Inventory.Count);
+            Assert.Equal(state.Characters[0].Weapon?.Name, loaded.Characters[0].Weapon?.Name);
+        }
+        finally
+        {
+            if (File.Exists(tempPath)) File.Delete(tempPath);
+        }
+    }
+
+    [Fact]
+    public void Battle_Uses_AttackStrategy_When_Attacking()
+    {
+        var attacker = CharacterFactory.CreateWarrior("Egon");
+        var defender = CharacterFactory.CreateOrc();
+
+        var mockStrategy = new Mock<IAttackStrategy>();
+        mockStrategy
+            .Setup(strategy => strategy.Execute(It.IsAny<ICharacter>(), It.IsAny<ICharacter>()))
+            .Returns(new AttackResult(5, "Mock attack"));
+
+        var result = attacker.Attack(defender, mockStrategy.Object);
+
+        Assert.Equal(5, result.Damage);
+        Assert.Equal("Mock attack", result.Description);
+        mockStrategy.Verify(strategy => strategy.Execute(attacker, defender), Times.Once);
     }
 }

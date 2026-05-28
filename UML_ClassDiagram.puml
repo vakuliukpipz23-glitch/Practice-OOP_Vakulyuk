@@ -1,0 +1,48 @@
+@startuml
+package Domain {
+  abstract class Character {
+    - _name: string
+    - _health: int
+    - _baseAttackPower: int
+    - _baseDefense: int
+    + Name: string
+    + Health: int
+    + BaseAttackPower: int
+    + BaseDefense: int
+    + IsAlive: bool
+    + EquippedWeapon: Weapon?
+    + GetAttackPower(): int
+    + Attack(defender: ICharacter, strategy: IAttackStrategy): AttackResult
+    + EquipWeapon(weapon: Weapon)
+    + ReceiveDamage(amount: int)
+    + Describe(): string
+  }
+
+  class PlayerCharacter
+  class Monster
+  class Weapon
+  class Battle
+  class Party
+  class Inventory
+  class Item
+  class Repository<T>
+  class Cache<TKey, TValue>
+  class GameStateDto
+  class GameStateSerializer
+  class GameStateXmlSerializer
+}
+
+Character <|-- PlayerCharacter
+Character <|-- Monster
+Character --> Weapon
+Battle --> Character
+Battle --> IAttackStrategy
+Party --> Character
+Inventory --> Item
+Repository<T> --> T
+Cache<TKey, TValue> --> TKey
+Cache<TKey, TValue> --> TValue
+GameStateDto --> CharacterDto
+GameStateDto --> ItemDto
+GameStateDto --> WeaponDto
+@enduml

@@ -1,6 +1,6 @@
 namespace PracticeOOP_RPG.Domain;
 
-public sealed class Inventory
+public sealed class Inventory : IEnumerable<Item>
 {
     private readonly List<Item> _items = new();
 
@@ -45,6 +45,10 @@ public sealed class Inventory
         inventory.Add(item);
         return inventory;
     }
+
+    public IEnumerator<Item> GetEnumerator() => _items.GetEnumerator();
+
+    System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() => GetEnumerator();
 
     public override string ToString() => string.Join(", ", _items.Select(item => item.Name));
 }

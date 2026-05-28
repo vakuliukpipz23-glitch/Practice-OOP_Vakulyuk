@@ -1,0 +1,80 @@
+{
+  "Name": "RPG Simulation",
+  "SavedAt": "2026-05-28T09:09:10.1869209Z",
+  "Characters": [
+    {
+      "Name": "Aelric",
+      "Type": "Warrior",
+      "Health": 55,
+      "AttackPower": 8,
+      "Defense": 5,
+      "Weapon": {
+        "Name": "Longsword",
+        "Power": 6,
+        "Range": 1
+      }
+    },
+    {
+      "Name": "Serin",
+      "Type": "Ranger",
+      "Health": 42,
+      "AttackPower": 7,
+      "Defense": 3,
+      "Weapon": {
+        "Name": "Short Bow",
+        "Power": 5,
+        "Range": 3
+      }
+    },
+    {
+      "Name": "Goblin",
+      "Type": "Goblin",
+      "Health": 28,
+      "AttackPower": 5,
+      "Defense": 2,
+      "Weapon": {
+        "Name": "Spiked Club",
+        "Power": 4,
+        "Range": 1
+      }
+    },
+    {
+      "Name": "Orc",
+      "Type": "Orc",
+      "Health": 35,
+      "AttackPower": 7,
+      "Defense": 4,
+      "Weapon": {
+        "Name": "Spiked Club",
+        "Power": 4,
+        "Range": 1
+      }
+    },
+    {
+      "Name": "Skeleton Archer",
+      "Type": "Skeleton Archer",
+      "Health": 22,
+      "AttackPower": 6,
+      "Defense": 1,
+      "Weapon": {
+        "Name": "Short Bow",
+        "Power": 5,
+        "Range": 3
+      }
+    }
+  ],
+  "Inventory": [
+    {
+      "Name": "\u0415\u043B\u0456\u043A\u0441\u0438\u0440 \u0437\u0434\u043E\u0440\u043E\u0432\u0027\u044F",
+      "Description": "\u0412\u0456\u0434\u043D\u043E\u0432\u043B\u044E\u0454 20 HP",
+      "Weight": 0.5,
+      "Value": 15
+    },
+    {
+      "Name": "\u0415\u043B\u0456\u043A\u0441\u0438\u0440 \u043C\u0430\u043D\u0438",
+      "Description": "\u0412\u0456\u0434\u043D\u043E\u0432\u043B\u044E\u0454 10 MP",
+      "Weight": 0.4,
+      "Value": 12
+    }
+  ]
+}

@@ -4,13 +4,15 @@ public abstract class Character : ICharacter, IEquatable<Character>
 {
     private readonly string _name;
     private int _health;
+    private int _maxHealth;
     private readonly int _baseAttackPower;
     private readonly int _baseDefense;
 
     protected Character(string name, int health, int attackPower, int defense)
     {
         _name = string.IsNullOrWhiteSpace(name) ? throw new ArgumentException("Name is required.", nameof(name)) : name;
-        _health = Math.Max(0, health);
+        _maxHealth = Math.Max(1, health);
+        _health = _maxHealth;
         _baseAttackPower = Math.Max(0, attackPower);
         _baseDefense = Math.Max(0, defense);
     }
@@ -19,7 +21,13 @@ public abstract class Character : ICharacter, IEquatable<Character>
     public int Health
     {
         get => _health;
-        protected set => _health = Math.Max(0, value);
+        protected set => _health = Math.Max(0, Math.Min(MaxHealth, value));
+    }
+
+    public int MaxHealth
+    {
+        get => _maxHealth;
+        protected set => _maxHealth = Math.Max(1, value);
     }
 
     public int BaseAttackPower => _baseAttackPower;
@@ -65,6 +73,17 @@ public abstract class Character : ICharacter, IEquatable<Character>
     {
         if (amount <= 0) return;
         Health -= amount;
+    }
+
+    public void Heal(int amount)
+    {
+        if (amount <= 0) return;
+        Health += amount;
+    }
+
+    public void RestoreToFull()
+    {
+        Health = MaxHealth;
     }
 
     public abstract string Describe();
