@@ -1,19 +1,7 @@
 {
   "Name": "RPG Simulation",
-  "SavedAt": "2026-05-28T09:09:10.1869209Z",
+  "SavedAt": "2026-05-28T13:42:36.3521284Z",
   "Characters": [
-    {
-      "Name": "Aelric",
-      "Type": "Warrior",
-      "Health": 55,
-      "AttackPower": 8,
-      "Defense": 5,
-      "Weapon": {
-        "Name": "Longsword",
-        "Power": 6,
-        "Range": 1
-      }
-    },
     {
       "Name": "Serin",
       "Type": "Ranger",
@@ -27,16 +15,32 @@
       }
     },
     {
+      "Name": "Aelric",
+      "Type": "Warrior",
+      "Health": 55,
+      "AttackPower": 8,
+      "Defense": 5,
+      "Weapon": {
+        "Name": "Longsword",
+        "Power": 6,
+        "Range": 1
+      }
+    },
+    {
       "Name": "Goblin",
       "Type": "Goblin",
       "Health": 28,
       "AttackPower": 5,
       "Defense": 2,
-      "Weapon": {
-        "Name": "Spiked Club",
-        "Power": 4,
-        "Range": 1
-      }
+      "Weapon": null
+    },
+    {
+      "Name": "Skeleton Archer",
+      "Type": "Undead Archer",
+      "Health": 22,
+      "AttackPower": 6,
+      "Defense": 1,
+      "Weapon": null
     },
     {
       "Name": "Orc",
@@ -44,23 +48,47 @@
       "Health": 35,
       "AttackPower": 7,
       "Defense": 4,
-      "Weapon": {
-        "Name": "Spiked Club",
-        "Power": 4,
-        "Range": 1
-      }
+      "Weapon": null
+    },
+    {
+      "Name": "Bandit",
+      "Type": "Rogue Bandit",
+      "Health": 30,
+      "AttackPower": 6,
+      "Defense": 3,
+      "Weapon": null
     },
     {
       "Name": "Skeleton Archer",
-      "Type": "Skeleton Archer",
+      "Type": "Undead Archer",
       "Health": 22,
       "AttackPower": 6,
       "Defense": 1,
-      "Weapon": {
-        "Name": "Short Bow",
-        "Power": 5,
-        "Range": 3
-      }
+      "Weapon": null
+    },
+    {
+      "Name": "Wraith",
+      "Type": "Spectral Wraith",
+      "Health": 24,
+      "AttackPower": 8,
+      "Defense": 2,
+      "Weapon": null
+    },
+    {
+      "Name": "Goblin",
+      "Type": "Goblin",
+      "Health": 28,
+      "AttackPower": 5,
+      "Defense": 2,
+      "Weapon": null
+    },
+    {
+      "Name": "Orc",
+      "Type": "Orc",
+      "Health": 35,
+      "AttackPower": 7,
+      "Defense": 4,
+      "Weapon": null
     }
   ],
   "Inventory": [

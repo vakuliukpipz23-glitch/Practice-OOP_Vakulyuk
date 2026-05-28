@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameStateDto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Name>RPG Simulation</Name>
-  <SavedAt>2026-05-28T09:09:10.1869209Z</SavedAt>
+  <SavedAt>2026-05-28T13:42:36.3521284Z</SavedAt>
   <Characters>
-    <CharacterDto>
-      <Name>Aelric</Name>
-      <Type>Warrior</Type>
-      <Health>55</Health>
-      <AttackPower>8</AttackPower>
-      <Defense>5</Defense>
-      <Weapon>
-        <Name>Longsword</Name>
-        <Power>6</Power>
-        <Range>1</Range>
-      </Weapon>
-    </CharacterDto>
     <CharacterDto>
       <Name>Serin</Name>
       <Type>Ranger</Type>
@@ -28,16 +16,30 @@
       </Weapon>
     </CharacterDto>
     <CharacterDto>
+      <Name>Aelric</Name>
+      <Type>Warrior</Type>
+      <Health>55</Health>
+      <AttackPower>8</AttackPower>
+      <Defense>5</Defense>
+      <Weapon>
+        <Name>Longsword</Name>
+        <Power>6</Power>
+        <Range>1</Range>
+      </Weapon>
+    </CharacterDto>
+    <CharacterDto>
       <Name>Goblin</Name>
       <Type>Goblin</Type>
       <Health>28</Health>
       <AttackPower>5</AttackPower>
       <Defense>2</Defense>
-      <Weapon>
-        <Name>Spiked Club</Name>
-        <Power>4</Power>
-        <Range>1</Range>
-      </Weapon>
+    </CharacterDto>
+    <CharacterDto>
+      <Name>Skeleton Archer</Name>
+      <Type>Undead Archer</Type>
+      <Health>22</Health>
+      <AttackPower>6</AttackPower>
+      <Defense>1</Defense>
     </CharacterDto>
     <CharacterDto>
       <Name>Orc</Name>
@@ -45,23 +47,41 @@
       <Health>35</Health>
       <AttackPower>7</AttackPower>
       <Defense>4</Defense>
-      <Weapon>
-        <Name>Spiked Club</Name>
-        <Power>4</Power>
-        <Range>1</Range>
-      </Weapon>
+    </CharacterDto>
+    <CharacterDto>
+      <Name>Bandit</Name>
+      <Type>Rogue Bandit</Type>
+      <Health>30</Health>
+      <AttackPower>6</AttackPower>
+      <Defense>3</Defense>
     </CharacterDto>
     <CharacterDto>
       <Name>Skeleton Archer</Name>
-      <Type>Skeleton Archer</Type>
+      <Type>Undead Archer</Type>
       <Health>22</Health>
       <AttackPower>6</AttackPower>
       <Defense>1</Defense>
-      <Weapon>
-        <Name>Short Bow</Name>
-        <Power>5</Power>
-        <Range>3</Range>
-      </Weapon>
+    </CharacterDto>
+    <CharacterDto>
+      <Name>Wraith</Name>
+      <Type>Spectral Wraith</Type>
+      <Health>24</Health>
+      <AttackPower>8</AttackPower>
+      <Defense>2</Defense>
+    </CharacterDto>
+    <CharacterDto>
+      <Name>Goblin</Name>
+      <Type>Goblin</Type>
+      <Health>28</Health>
+      <AttackPower>5</AttackPower>
+      <Defense>2</Defense>
+    </CharacterDto>
+    <CharacterDto>
+      <Name>Orc</Name>
+      <Type>Orc</Type>
+      <Health>35</Health>
+      <AttackPower>7</AttackPower>
+      <Defense>4</Defense>
     </CharacterDto>
   </Characters>
   <Inventory>

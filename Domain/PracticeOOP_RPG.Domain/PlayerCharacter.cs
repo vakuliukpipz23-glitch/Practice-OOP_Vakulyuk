@@ -5,6 +5,9 @@ public sealed class PlayerCharacter : Character
     public string ClassName { get; }
     public int Mana { get; private set; }
     public int MaxMana { get; private set; }
+    private readonly List<Ability> _abilities = new();
+
+    public IReadOnlyList<Ability> Abilities => _abilities.AsReadOnly();
 
     public PlayerCharacter(string name, string className, int health, int attackPower, int defense)
         : base(name, health, attackPower, defense)
@@ -17,6 +20,12 @@ public sealed class PlayerCharacter : Character
     public override string Describe()
     {
         return $"{Name} the {ClassName}: HP={Health}/{MaxHealth}, MP={Mana}/{MaxMana}, ATK={GetAttackPower()}, DEF={BaseDefense}.";
+    }
+
+    public void AddAbility(Ability ability)
+    {
+        if (ability == null) throw new ArgumentNullException(nameof(ability));
+        _abilities.Add(ability);
     }
 
     public bool TrySpendMana(int amount)
